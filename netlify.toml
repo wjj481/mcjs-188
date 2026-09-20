@@ -1,0 +1,37 @@
+# MCJS 1.8.8 静态资源长缓存配置
+
+# 大文件（24.7MB）永久缓存：浏览器首次下载后不再重复拉取
+[[headers]]
+  for = "/classes.js"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# 游戏资源包（7.2MB）永久缓存
+[[headers]]
+  for = "/assets.epk"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# 语言包
+[[headers]]
+  for = "/lang/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# 图标
+[[headers]]
+  for = "/favicon.png"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# 页面入口短缓存（保证能及时拿到更新）
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+  Cache-Control = "public, max-age=300"
+
+# Service Worker 不缓存（始终获取最新版本）
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+  Cache-Control = "no-cache"

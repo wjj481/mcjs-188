@@ -69,7 +69,7 @@
 				background-color: #40a9ff;
 			}
 		</style>
-		<link type="image/png" rel="shortcut icon" href="../favicon.png" />
+		<link type="image/png" rel="shortcut icon" href="favicon.png" />
 		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript">
 			"use strict";
@@ -145,6 +145,18 @@
 					protocolModal.style.display = 'none';
 				}, 300);
 			});
+		</script>
+		<script>
+			// 注册离线缓存 Service Worker（仅 HTTPS 生效）
+			if ('serviceWorker' in navigator && location.protocol === 'https:') {
+				window.addEventListener('load', function () {
+					navigator.serviceWorker.register('sw.js').then(function (reg) {
+						console.log('[MCJS] Service Worker 注册成功', reg.scope);
+					}).catch(function (err) {
+						console.warn('[MCJS] Service Worker 注册失败', err);
+					});
+				});
+			}
 		</script>
 	<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "320df8b1652c43f5956a82109dec39e6"}'></script><!-- Cloudflare Pages Analytics --></body>
 </html>
