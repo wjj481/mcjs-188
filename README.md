@@ -2,4 +2,4 @@
 
 Minecraft 1.8.8 网页版（MCJS），浏览器直接游玩，无需安装。
 
-> 本页面由 AI 协助构建部署，仅供学习交流使用。
+在线地址：https://wjj481.github.io/mcjs-188/
