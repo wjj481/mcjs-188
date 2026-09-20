@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><body>
+<h3>XHR test on file://</h3>
+<div id="out">testing...</div>
+<script>
+var x = new XMLHttpRequest();
+x.open("GET", "classes.js", true);
+x.responseType = "arraybuffer";
+x.onload = function(){ document.getElementById('out').textContent = "OK status=" + x.status + " bytes=" + x.response.byteLength; };
+x.onerror = function(){ document.getElementById('out').textContent = "XHR ERROR (blocked)"; };
+x.send();
+</script></body></html>
